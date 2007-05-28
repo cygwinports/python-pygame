@@ -1,0 +1,140 @@
+python-pygame
+-------------------------------------------
+Pygame is a set of Python modules designed for writing games. It is
+written on top of the excellent SDL library. This allows you to create
+fully featured games and multimedia programs in the python language.
+
+Runtime requirements:
+  cygwin-1.5.24-2
+  libSDL12-1.2.11-1
+  libSDL_image-1.2.5-1
+  libSDL_mixer-1.2.7-1
+  libSDL_ttf-2.0.8-1
+  python-2.5.1-1
+  python-numpy-1.0.3-1
+  python-opengl-3.0.0a6-1
+  smpeg-0.4.4-4
+
+Build requirements:
+(besides corresponding devel packages)
+  cygwin-1.5.24-2
+  binutils-20060817-1
+  cygport-0.3.1-1
+  gcc-core-3.4.4-3
+  python-2.5.1-1
+
+Canonical homepage:
+  http://www.pygame.org/
+
+Canonical download:
+  http://www.pygame.org/ftp/
+
+-------------------------------------------
+
+Build instructions:
+  unpack python-pygame-1.7.1-X-src.tar.bz2
+    if you use setup to install this src package, it will be
+	 unpacked under /usr/src automatically
+  cd /usr/src
+  cygport ./python-pygame-1.7.1-X.cygport all
+
+This will create:
+  /usr/src/python-pygame-1.7.1-X-src.tar.bz2
+  /usr/src/python-pygame-1.7.1-X.tar.bz2
+
+-------------------------------------------
+
+Files included in the binary package:
+
+  /usr/include/python2.5/pygame/fastevents.h
+  /usr/include/python2.5/pygame/ffmovie.h
+  /usr/include/python2.5/pygame/font.h
+  /usr/include/python2.5/pygame/mixer.h
+  /usr/include/python2.5/pygame/pygame.h
+  /usr/lib/python2.5/site-packages/pygame-1.7.1release-py2.5.egg-info
+  /usr/lib/python2.5/site-packages/pygame/__init__.py
+  /usr/lib/python2.5/site-packages/pygame/__init__.pyc
+  /usr/lib/python2.5/site-packages/pygame/__init__.pyo
+  /usr/lib/python2.5/site-packages/pygame/base.dll
+  /usr/lib/python2.5/site-packages/pygame/cdrom.dll
+  /usr/lib/python2.5/site-packages/pygame/color.py
+  /usr/lib/python2.5/site-packages/pygame/color.pyc
+  /usr/lib/python2.5/site-packages/pygame/color.pyo
+  /usr/lib/python2.5/site-packages/pygame/colordict.py
+  /usr/lib/python2.5/site-packages/pygame/colordict.pyc
+  /usr/lib/python2.5/site-packages/pygame/colordict.pyo
+  /usr/lib/python2.5/site-packages/pygame/constants.dll
+  /usr/lib/python2.5/site-packages/pygame/cursors.py
+  /usr/lib/python2.5/site-packages/pygame/cursors.pyc
+  /usr/lib/python2.5/site-packages/pygame/cursors.pyo
+  /usr/lib/python2.5/site-packages/pygame/display.dll
+  /usr/lib/python2.5/site-packages/pygame/draw.dll
+  /usr/lib/python2.5/site-packages/pygame/event.dll
+  /usr/lib/python2.5/site-packages/pygame/fastevent.dll
+  /usr/lib/python2.5/site-packages/pygame/font.dll
+  /usr/lib/python2.5/site-packages/pygame/freesansbold.ttf
+  /usr/lib/python2.5/site-packages/pygame/image.dll
+  /usr/lib/python2.5/site-packages/pygame/imageext.dll
+  /usr/lib/python2.5/site-packages/pygame/joystick.dll
+  /usr/lib/python2.5/site-packages/pygame/key.dll
+  /usr/lib/python2.5/site-packages/pygame/locals.py
+  /usr/lib/python2.5/site-packages/pygame/locals.pyc
+  /usr/lib/python2.5/site-packages/pygame/locals.pyo
+  /usr/lib/python2.5/site-packages/pygame/macosx.py
+  /usr/lib/python2.5/site-packages/pygame/macosx.pyc
+  /usr/lib/python2.5/site-packages/pygame/macosx.pyo
+  /usr/lib/python2.5/site-packages/pygame/mixer.dll
+  /usr/lib/python2.5/site-packages/pygame/mixer_music.dll
+  /usr/lib/python2.5/site-packages/pygame/mouse.dll
+  /usr/lib/python2.5/site-packages/pygame/movie.dll
+  /usr/lib/python2.5/site-packages/pygame/overlay.dll
+  /usr/lib/python2.5/site-packages/pygame/pkgdata.py
+  /usr/lib/python2.5/site-packages/pygame/pkgdata.pyc
+  /usr/lib/python2.5/site-packages/pygame/pkgdata.pyo
+  /usr/lib/python2.5/site-packages/pygame/pygame.ico
+  /usr/lib/python2.5/site-packages/pygame/pygame_icon.bmp
+  /usr/lib/python2.5/site-packages/pygame/pygame_icon.icns
+  /usr/lib/python2.5/site-packages/pygame/pygame_icon.tiff
+  /usr/lib/python2.5/site-packages/pygame/rect.dll
+  /usr/lib/python2.5/site-packages/pygame/rwobject.dll
+  /usr/lib/python2.5/site-packages/pygame/sndarray.dll
+  /usr/lib/python2.5/site-packages/pygame/sprite.py
+  /usr/lib/python2.5/site-packages/pygame/sprite.pyc
+  /usr/lib/python2.5/site-packages/pygame/sprite.pyo
+  /usr/lib/python2.5/site-packages/pygame/surface.dll
+  /usr/lib/python2.5/site-packages/pygame/surfarray.dll
+  /usr/lib/python2.5/site-packages/pygame/surflock.dll
+  /usr/lib/python2.5/site-packages/pygame/sysfont.py
+  /usr/lib/python2.5/site-packages/pygame/sysfont.pyc
+  /usr/lib/python2.5/site-packages/pygame/sysfont.pyo
+  /usr/lib/python2.5/site-packages/pygame/time.dll
+  /usr/lib/python2.5/site-packages/pygame/transform.dll
+  /usr/lib/python2.5/site-packages/pygame/version.py
+  /usr/lib/python2.5/site-packages/pygame/version.pyc
+  /usr/lib/python2.5/site-packages/pygame/version.pyo
+  /usr/share/doc/Cygwin/python-pygame-1.7.1.README
+  /usr/share/doc/python-pygame-1.7.1/README.txt
+  /usr/share/doc/python-pygame-1.7.1/WHATSNEW
+
+------------------
+
+Port Notes:
+
+----- version 1.7.1-2 -----
+Rebuilt for python-2.5 and numpy.
+
+----- version 1.7.1-1 -----
+Version bump.
+
+----- version 1.6.2-1 -----
+Version bump, built with the X11 ports of the SDL libraries.
+
+----- version 1.6-2 -----
+Rebuilt for python2.4 and SDL_mixer with Ogg Vorbis support.
+
+----- version 1.6-1 -----
+Initial release for Cygwin.
+
+
+Cygwin port maintained by:
+http://cygwinports.dotsrc.org/
