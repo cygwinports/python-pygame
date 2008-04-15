@@ -5,23 +5,24 @@ written on top of the excellent SDL library. This allows you to create
 fully featured games and multimedia programs in the python language.
 
 Runtime requirements:
-  cygwin-1.5.24-2
-  libSDL12-1.2.11-1
-  libSDL_image-1.2.5-1
-  libSDL_mixer-1.2.7-1
-  libSDL_ttf-2.0.8-1
-  python-2.5.1-1
+  cygwin-1.5.25-7
+  libSDL12-1.2.12-1
+  libSDL_image-1.2.6-1
+  libSDL_mixer-1.2.8-1
+  libSDL_ttf-2.0.9-1
+  libX11_6-1.1.3-1
+  libjpeg62-6b-12
+  libpng12-1.2.24-1
+  python-2.5.1-3
   python-numpy-1.0.3-1
   python-opengl-3.0.0a6-1
   smpeg-0.4.4-4
 
 Build requirements:
 (besides corresponding devel packages)
-  cygwin-1.5.24-2
   binutils-20060817-1
-  cygport-0.3.1-1
+  cygport-0.3.8-1
   gcc-core-3.4.4-3
-  python-2.5.1-1
 
 Canonical homepage:
   http://www.pygame.org/
@@ -32,30 +33,43 @@ Canonical download:
 -------------------------------------------
 
 Build instructions:
-  unpack python-pygame-1.7.1-X-src.tar.bz2
+  unpack python-pygame-1.8.0-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./python-pygame-1.7.1-X.cygport all
+  cygport ./python-pygame-1.8.0-X.cygport all
 
 This will create:
-  /usr/src/python-pygame-1.7.1-X-src.tar.bz2
-  /usr/src/python-pygame-1.7.1-X.tar.bz2
+  /usr/src/python-pygame-1.8.0-X-src.tar.bz2
+  /usr/src/python-pygame-1.8.0-X.tar.bz2
 
 -------------------------------------------
 
 Files included in the binary package:
 
+  /usr/include/python2.5/pygame/bitmask.h
   /usr/include/python2.5/pygame/fastevents.h
   /usr/include/python2.5/pygame/ffmovie.h
   /usr/include/python2.5/pygame/font.h
   /usr/include/python2.5/pygame/mixer.h
   /usr/include/python2.5/pygame/pygame.h
-  /usr/lib/python2.5/site-packages/pygame-1.7.1release-py2.5.egg-info
+  /usr/include/python2.5/pygame/pygamedocs.h
+  /usr/include/python2.5/pygame/scrap.h
+  /usr/include/python2.5/pygame/surface.h
+  /usr/lib/python2.5/site-packages/pygame-1.8.0release-py2.5.egg-info
   /usr/lib/python2.5/site-packages/pygame/__init__.py
   /usr/lib/python2.5/site-packages/pygame/__init__.pyc
   /usr/lib/python2.5/site-packages/pygame/__init__.pyo
+  /usr/lib/python2.5/site-packages/pygame/_numericsndarray.dll
+  /usr/lib/python2.5/site-packages/pygame/_numericsurfarray.dll
+  /usr/lib/python2.5/site-packages/pygame/_numpysndarray.py
+  /usr/lib/python2.5/site-packages/pygame/_numpysndarray.pyc
+  /usr/lib/python2.5/site-packages/pygame/_numpysndarray.pyo
+  /usr/lib/python2.5/site-packages/pygame/_numpysurfarray.py
+  /usr/lib/python2.5/site-packages/pygame/_numpysurfarray.pyc
+  /usr/lib/python2.5/site-packages/pygame/_numpysurfarray.pyo
   /usr/lib/python2.5/site-packages/pygame/base.dll
+  /usr/lib/python2.5/site-packages/pygame/bufferproxy.dll
   /usr/lib/python2.5/site-packages/pygame/cdrom.dll
   /usr/lib/python2.5/site-packages/pygame/color.py
   /usr/lib/python2.5/site-packages/pygame/color.pyc
@@ -73,6 +87,15 @@ Files included in the binary package:
   /usr/lib/python2.5/site-packages/pygame/fastevent.dll
   /usr/lib/python2.5/site-packages/pygame/font.dll
   /usr/lib/python2.5/site-packages/pygame/freesansbold.ttf
+  /usr/lib/python2.5/site-packages/pygame/gp2x/__init__.py
+  /usr/lib/python2.5/site-packages/pygame/gp2x/__init__.pyc
+  /usr/lib/python2.5/site-packages/pygame/gp2x/__init__.pyo
+  /usr/lib/python2.5/site-packages/pygame/gp2x/constants.py
+  /usr/lib/python2.5/site-packages/pygame/gp2x/constants.pyc
+  /usr/lib/python2.5/site-packages/pygame/gp2x/constants.pyo
+  /usr/lib/python2.5/site-packages/pygame/gp2x/locals.py
+  /usr/lib/python2.5/site-packages/pygame/gp2x/locals.pyc
+  /usr/lib/python2.5/site-packages/pygame/gp2x/locals.pyo
   /usr/lib/python2.5/site-packages/pygame/image.dll
   /usr/lib/python2.5/site-packages/pygame/imageext.dll
   /usr/lib/python2.5/site-packages/pygame/joystick.dll
@@ -80,14 +103,19 @@ Files included in the binary package:
   /usr/lib/python2.5/site-packages/pygame/locals.py
   /usr/lib/python2.5/site-packages/pygame/locals.pyc
   /usr/lib/python2.5/site-packages/pygame/locals.pyo
+  /usr/lib/python2.5/site-packages/pygame/mac_scrap.py
+  /usr/lib/python2.5/site-packages/pygame/mac_scrap.pyc
+  /usr/lib/python2.5/site-packages/pygame/mac_scrap.pyo
   /usr/lib/python2.5/site-packages/pygame/macosx.py
   /usr/lib/python2.5/site-packages/pygame/macosx.pyc
   /usr/lib/python2.5/site-packages/pygame/macosx.pyo
+  /usr/lib/python2.5/site-packages/pygame/mask.dll
   /usr/lib/python2.5/site-packages/pygame/mixer.dll
   /usr/lib/python2.5/site-packages/pygame/mixer_music.dll
   /usr/lib/python2.5/site-packages/pygame/mouse.dll
   /usr/lib/python2.5/site-packages/pygame/movie.dll
   /usr/lib/python2.5/site-packages/pygame/overlay.dll
+  /usr/lib/python2.5/site-packages/pygame/pixelarray.dll
   /usr/lib/python2.5/site-packages/pygame/pkgdata.py
   /usr/lib/python2.5/site-packages/pygame/pkgdata.pyc
   /usr/lib/python2.5/site-packages/pygame/pkgdata.pyo
@@ -97,12 +125,17 @@ Files included in the binary package:
   /usr/lib/python2.5/site-packages/pygame/pygame_icon.tiff
   /usr/lib/python2.5/site-packages/pygame/rect.dll
   /usr/lib/python2.5/site-packages/pygame/rwobject.dll
-  /usr/lib/python2.5/site-packages/pygame/sndarray.dll
+  /usr/lib/python2.5/site-packages/pygame/scrap.dll
+  /usr/lib/python2.5/site-packages/pygame/sndarray.py
+  /usr/lib/python2.5/site-packages/pygame/sndarray.pyc
+  /usr/lib/python2.5/site-packages/pygame/sndarray.pyo
   /usr/lib/python2.5/site-packages/pygame/sprite.py
   /usr/lib/python2.5/site-packages/pygame/sprite.pyc
   /usr/lib/python2.5/site-packages/pygame/sprite.pyo
   /usr/lib/python2.5/site-packages/pygame/surface.dll
-  /usr/lib/python2.5/site-packages/pygame/surfarray.dll
+  /usr/lib/python2.5/site-packages/pygame/surfarray.py
+  /usr/lib/python2.5/site-packages/pygame/surfarray.pyc
+  /usr/lib/python2.5/site-packages/pygame/surfarray.pyo
   /usr/lib/python2.5/site-packages/pygame/surflock.dll
   /usr/lib/python2.5/site-packages/pygame/sysfont.py
   /usr/lib/python2.5/site-packages/pygame/sysfont.pyc
@@ -112,13 +145,15 @@ Files included in the binary package:
   /usr/lib/python2.5/site-packages/pygame/version.py
   /usr/lib/python2.5/site-packages/pygame/version.pyc
   /usr/lib/python2.5/site-packages/pygame/version.pyo
-  /usr/share/doc/Cygwin/python-pygame-1.7.1.README
-  /usr/share/doc/python-pygame-1.7.1/README.txt
-  /usr/share/doc/python-pygame-1.7.1/WHATSNEW
+  /usr/share/doc/python-pygame-1.8.0/README.txt
+  /usr/share/doc/python-pygame-1.8.0/WHATSNEW
 
 ------------------
 
 Port Notes:
+
+----- version 1.8.0-1 -----
+Version bump.
 
 ----- version 1.7.1-2 -----
 Rebuilt for python-2.5 and numpy.
