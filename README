@@ -5,23 +5,23 @@ written on top of the excellent SDL library. This allows you to create
 fully featured games and multimedia programs in the python language.
 
 Runtime requirements:
-  cygwin-1.5.25-7
-  libSDL12-1.2.12-1
+  cygwin-1.5.25-15
+  libjpeg62-6b-12
+  libpng12-1.2.29-1
+  libSDL12-1.2.13-1
   libSDL_image-1.2.6-1
   libSDL_mixer-1.2.8-1
   libSDL_ttf-2.0.9-1
   libX11_6-1.1.3-1
-  libjpeg62-6b-12
-  libpng12-1.2.24-1
-  python-2.5.1-3
-  python-numpy-1.0.3-1
-  python-opengl-3.0.0a6-1
+  python-2.5.2-2
+  python-numpy-1.0.4-1
+  python-opengl-3.0.0b3-1
   smpeg-0.4.4-4
 
 Build requirements:
 (besides corresponding devel packages)
-  binutils-20060817-1
-  cygport-0.3.8-1
+  binutils-20080523-2
+  cygport-0.3.12-1
   gcc-core-3.4.4-3
 
 Canonical homepage:
@@ -33,15 +33,15 @@ Canonical download:
 -------------------------------------------
 
 Build instructions:
-  unpack python-pygame-1.8.0-X-src.tar.bz2
+  unpack python-pygame-1.8.1-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./python-pygame-1.8.0-X.cygport all
+  cygport ./python-pygame-1.8.1-X.cygport all
 
 This will create:
-  /usr/src/python-pygame-1.8.0-X-src.tar.bz2
-  /usr/src/python-pygame-1.8.0-X.tar.bz2
+  /usr/src/python-pygame-1.8.1-X-src.tar.bz2
+  /usr/src/python-pygame-1.8.1-X.tar.bz2
 
 -------------------------------------------
 
@@ -52,11 +52,12 @@ Files included in the binary package:
   /usr/include/python2.5/pygame/ffmovie.h
   /usr/include/python2.5/pygame/font.h
   /usr/include/python2.5/pygame/mixer.h
+  /usr/include/python2.5/pygame/pgopengl.h
   /usr/include/python2.5/pygame/pygame.h
   /usr/include/python2.5/pygame/pygamedocs.h
   /usr/include/python2.5/pygame/scrap.h
   /usr/include/python2.5/pygame/surface.h
-  /usr/lib/python2.5/site-packages/pygame-1.8.0release-py2.5.egg-info
+  /usr/lib/python2.5/site-packages/pygame-1.8.1release-py2.5.egg-info
   /usr/lib/python2.5/site-packages/pygame/__init__.py
   /usr/lib/python2.5/site-packages/pygame/__init__.pyc
   /usr/lib/python2.5/site-packages/pygame/__init__.pyo
@@ -71,9 +72,7 @@ Files included in the binary package:
   /usr/lib/python2.5/site-packages/pygame/base.dll
   /usr/lib/python2.5/site-packages/pygame/bufferproxy.dll
   /usr/lib/python2.5/site-packages/pygame/cdrom.dll
-  /usr/lib/python2.5/site-packages/pygame/color.py
-  /usr/lib/python2.5/site-packages/pygame/color.pyc
-  /usr/lib/python2.5/site-packages/pygame/color.pyo
+  /usr/lib/python2.5/site-packages/pygame/color.dll
   /usr/lib/python2.5/site-packages/pygame/colordict.py
   /usr/lib/python2.5/site-packages/pygame/colordict.pyc
   /usr/lib/python2.5/site-packages/pygame/colordict.pyo
@@ -140,17 +139,26 @@ Files included in the binary package:
   /usr/lib/python2.5/site-packages/pygame/sysfont.py
   /usr/lib/python2.5/site-packages/pygame/sysfont.pyc
   /usr/lib/python2.5/site-packages/pygame/sysfont.pyo
+  /usr/lib/python2.5/site-packages/pygame/threads/Py25Queue.py
+  /usr/lib/python2.5/site-packages/pygame/threads/Py25Queue.pyc
+  /usr/lib/python2.5/site-packages/pygame/threads/Py25Queue.pyo
+  /usr/lib/python2.5/site-packages/pygame/threads/__init__.py
+  /usr/lib/python2.5/site-packages/pygame/threads/__init__.pyc
+  /usr/lib/python2.5/site-packages/pygame/threads/__init__.pyo
   /usr/lib/python2.5/site-packages/pygame/time.dll
   /usr/lib/python2.5/site-packages/pygame/transform.dll
   /usr/lib/python2.5/site-packages/pygame/version.py
   /usr/lib/python2.5/site-packages/pygame/version.pyc
   /usr/lib/python2.5/site-packages/pygame/version.pyo
-  /usr/share/doc/python-pygame-1.8.0/README.txt
-  /usr/share/doc/python-pygame-1.8.0/WHATSNEW
+  /usr/share/doc/python-pygame-1.8.1/README.txt
+  /usr/share/doc/python-pygame-1.8.1/WHATSNEW
 
 ------------------
 
 Port Notes:
+
+----- version 1.8.1-1 -----
+Version bump.
 
 ----- version 1.8.0-1 -----
 Version bump.

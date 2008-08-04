@@ -1,0 +1,26 @@
+--- origsrc/pygame-1.8.0release/config_unix.py	2008-01-19 20:26:49.000000000 -0600
++++ src/pygame-1.8.0release/config_unix.py	2008-04-15 07:31:55.796875000 -0500
+@@ -132,9 +132,9 @@
+     print '\nHunting dependencies...'
+     DEPS = [
+         DependencyProg('SDL', 'SDL_CONFIG', 'sdl-config', '1.2', ['sdl']),
+-        Dependency('FONT', 'SDL_ttf.h', 'libSDL_ttf.so', ['SDL_ttf']),
+-        Dependency('IMAGE', 'SDL_image.h', 'libSDL_image.so', ['SDL_image']),
+-        Dependency('MIXER', 'SDL_mixer.h', 'libSDL_mixer.so', ['SDL_mixer']),
++        Dependency('FONT', 'SDL_ttf.h', 'libSDL_ttf', ['SDL_ttf']),
++        Dependency('IMAGE', 'SDL_image.h', 'libSDL_image', ['SDL_image']),
++        Dependency('MIXER', 'SDL_mixer.h', 'libSDL_mixer', ['SDL_mixer']),
+         DependencyProg('SMPEG', 'SMPEG_CONFIG', 'smpeg-config', '0.4.3', ['smpeg']),
+         Dependency('PNG', 'png.h', 'libpng', ['png']),
+         Dependency('JPEG', 'jpeglib.h', 'libjpeg', ['jpeg']),
+--- origsrc/pygame-1.8.0release/src/display.c	2008-03-28 16:45:42.000000000 -0500
++++ src/pygame-1.8.0release/src/display.c	2008-04-15 07:26:25.093750000 -0500
+@@ -319,7 +319,7 @@
+ /*scary #ifdef's match SDL_syswm.h*/
+ #if (defined(unix) || defined(__unix__) ||              \
+      defined(_AIX) || defined(__OpenBSD__)) &&          \
+-    (!defined(DISABLE_X11) && !defined(__CYGWIN32__) && \
++    (!defined(DISABLE_X11) && \
+      !defined(ENABLE_NANOX) && !defined(__QNXNTO__))
+ 
+     tmp = PyInt_FromLong (info.info.x11.window);
