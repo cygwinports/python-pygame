@@ -1,5 +1,5 @@
 category: Python Games Graphics Audio
-requires: libgcc1 libjpeg62 libpng12 libSDL1.2_0 libSDL_image1.2_0 libSDL_mixer1.2_0 libSDL_ttf2.0_0 libsmpeg0.4_0 libX11_6 python python-numpy python-opengl
+requires: libgcc1 libjpeg7 libpng12 libSDL1.2_0 libSDL_image1.2_0 libSDL_mixer1.2_0 libSDL_ttf2.0_0 libsmpeg0.4_0 libX11_6 python python-numpy python-opengl
 sdesc: "Python SDL bindings"
 ldesc: "Pygame is a set of Python modules designed for writing games. 
 It is written on top of the excellent SDL library. This allows you to create
