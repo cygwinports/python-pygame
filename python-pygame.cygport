@@ -3,7 +3,7 @@ inherit distutils
 
 NAME="python-pygame"
 VERSION=1.9.1
-RELEASE=4
+RELEASE=5
 CATEGORY="Python"
 SUMMARY="Python SDL game platform"
 DESCRIPTION="Pygame is a set of Python modules designed for writing games.
