@@ -1,0 +1,44 @@
+--- origsrc/pygame-1.9.3/setup.py	2017-01-16 10:37:47.000000000 -0600
++++ src/pygame-1.9.3/setup.py	2017-03-14 14:26:27.356156800 -0500
+@@ -222,15 +222,6 @@ for f in glob.glob(os.path.join('lib', '
+     if not f[-3:] == '.py' and not f[-4:] == '.doc' and os.path.isfile(f):
+         pygame_data_files.append(f)
+ 
+-#tests/fixtures
+-add_datafiles(data_files, 'pygame/tests',
+-              ['test',
+-                  [['fixtures',
+-                      [['xbm_cursors',
+-                          ['*.xbm']],
+-                       ['fonts',
+-                          ['*.ttf', '*.otf', '*.bdf', '*.png']]]]]])
+-
+ #examples
+ add_datafiles(data_files, 'pygame/examples',
+               ['examples',
+@@ -536,25 +527,11 @@ date_files = [(path, files) for path, fi
+ PACKAGEDATA = {
+        "cmdclass":    cmdclass,
+        "packages":    ['pygame', 'pygame.gp2x', 'pygame.threads',
+-                       'pygame.tests',
+-                       'pygame.tests.test_utils',
+-                       'pygame.tests.run_tests__tests',
+-                       'pygame.tests.run_tests__tests.all_ok',
+-                       'pygame.tests.run_tests__tests.failures1',
+-                       'pygame.tests.run_tests__tests.incomplete',
+-                       'pygame.tests.run_tests__tests.infinite_loop',
+-                       'pygame.tests.run_tests__tests.print_stderr',
+-                       'pygame.tests.run_tests__tests.print_stdout',
+-                       'pygame.tests.run_tests__tests.incomplete_todo',
+-                       'pygame.tests.run_tests__tests.exclude',
+-                       'pygame.tests.run_tests__tests.timeout',
+-                       'pygame.tests.run_tests__tests.everything',
+                        'pygame.docs',
+                        'pygame.examples'],
+        "package_dir": {'pygame': 'lib',
+                        'pygame.threads': 'lib/threads',
+                        'pygame.gp2x': 'lib/gp2x',
+-                       'pygame.tests': 'test',
+                        'pygame.docs': 'docs',
+                        'pygame.examples': 'examples'},
+        "headers":     headers,

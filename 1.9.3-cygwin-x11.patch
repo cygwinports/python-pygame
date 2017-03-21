@@ -1,0 +1,22 @@
+--- origsrc/pygame-1.9.3/src/display.c	2016-05-04 09:04:03.000000000 -0500
++++ src/pygame-1.9.3/src/display.c	2017-03-14 14:21:33.819140800 -0500
+@@ -354,7 +354,7 @@ get_wm_info (PyObject* self)
+ /*scary #ifdef's match SDL_syswm.h*/
+ #if (defined(unix) || defined(__unix__) ||              \
+      defined(_AIX) || defined(__OpenBSD__)) &&          \
+-    (defined(SDL_VIDEO_DRIVER_X11) && !defined(__CYGWIN32__) && \
++    (defined(SDL_VIDEO_DRIVER_X11) &&                   \
+      !defined(ENABLE_NANOX) && !defined(__QNXNTO__))
+ 
+     tmp = PyInt_FromLong (info.info.x11.window);
+--- origsrc/pygame-1.9.3/src/event.c	2016-05-04 09:04:03.000000000 -0500
++++ src/pygame-1.9.3/src/event.c	2017-03-14 14:21:23.829234500 -0500
+@@ -348,7 +348,7 @@ dict_from_event (SDL_Event* event)
+          */
+ #if (defined(unix) || defined(__unix__) || defined(_AIX)        \
+      || defined(__OpenBSD__)) &&                                \
+-    (defined(SDL_VIDEO_DRIVER_X11) && !defined(__CYGWIN32__) &&         \
++    (defined(SDL_VIDEO_DRIVER_X11) &&                           \
+      !defined(ENABLE_NANOX) && !defined(__QNXNTO__))
+ 
+         //printf("asdf :%d:", event->syswm.msg->event.xevent.type);

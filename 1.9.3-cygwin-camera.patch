@@ -1,0 +1,159 @@
+--- origsrc/pygame-1.9.3/src/_camera.c	2016-05-04 09:04:03.000000000 -0500
++++ src/pygame-1.9.3/src/_camera.c	2017-03-14 14:22:34.920070400 -0500
+@@ -37,7 +37,7 @@
+ #include "pgcompat.h"
+ 
+ /*
+-#if defined(__unix__) || !defined(__APPLE__)
++#if defined(__linux__) || !defined(__APPLE__)
+ #else
+     #define V4L2_PIX_FMT_RGB24 1
+     #define V4L2_PIX_FMT_RGB444 1
+@@ -129,7 +129,7 @@ PyObject* surf_colorspace (PyObject* sel
+ 
+ /* list_cameras() - lists cameras available on the computer */
+ PyObject* list_cameras (PyObject* self, PyObject* arg) {
+-#if defined(__unix__) || defined (PYGAME_MAC_CAMERA_OLD)
++#if defined(__linux__) || defined (PYGAME_MAC_CAMERA_OLD)
+     PyObject* ret_list;
+     PyObject* string;
+     char** devices;
+@@ -141,7 +141,7 @@ PyObject* list_cameras (PyObject* self,
+     if (!ret_list)
+         return NULL;
+ 
+-    #if defined(__unix__)
++    #if defined(__linux__)
+     devices = v4l2_list_cameras(&num_devices);
+     # elif defined(PYGAME_MAC_CAMERA_OLD)
+     devices = mac_list_cameras(&num_devices);
+@@ -163,7 +163,7 @@ PyObject* list_cameras (PyObject* self,
+ 
+ /* start() - opens, inits, and starts capturing on the camera */
+ PyObject* camera_start (PyCameraObject* self) {
+-#if defined(__unix__)
++#if defined(__linux__)
+     if (v4l2_open_device(self) == 0) {
+         v4l2_close_device(self);
+         return NULL;
+@@ -189,7 +189,7 @@ PyObject* camera_start (PyCameraObject*
+ 
+ /* stop() - stops capturing, uninits, and closes the camera */
+ PyObject* camera_stop (PyCameraObject* self) {
+-#if defined(__unix__)
++#if defined(__linux__)
+     if (v4l2_stop_capturing(self) == 0)
+         return NULL;
+     if (v4l2_uninit_device(self) == 0)
+@@ -208,7 +208,7 @@ PyObject* camera_stop (PyCameraObject* s
+ /* get_controls() - gets current values of user controls */
+ /* TODO: Support brightness, contrast, and other common controls */
+ PyObject* camera_get_controls (PyCameraObject* self) {
+-#if defined(__unix__)
++#if defined(__linux__)
+     int value;
+     if (v4l2_get_control(self->fd, V4L2_CID_HFLIP, &value))
+         self->hflip = value;
+@@ -228,7 +228,7 @@ PyObject* camera_get_controls (PyCameraO
+ 
+ /* set_controls() - changes camera settings if supported by the camera */
+ PyObject* camera_set_controls (PyCameraObject* self, PyObject* arg, PyObject *kwds) {
+-#if defined(__unix__)
++#if defined(__linux__)
+     int hflip = 0, vflip = 0, brightness = 0;
+     char *kwids[] = {"hflip", "vflip", "brightness", NULL};
+ 
+@@ -240,7 +240,7 @@ PyObject* camera_set_controls (PyCameraO
+     if (!PyArg_ParseTupleAndKeywords(arg, kwds, "|iii", kwids, &hflip, &vflip, &brightness))
+         return NULL;
+ 
+-/* #if defined(__unix__)         */
++/* #if defined(__linux__)         */
+     if (v4l2_set_control(self->fd, V4L2_CID_HFLIP, hflip))
+         self->hflip = hflip;
+ 
+@@ -274,7 +274,7 @@ PyObject* camera_set_controls (PyCameraO
+ 
+ /* get_size() - returns the dimensions of the images being recorded */
+ PyObject* camera_get_size (PyCameraObject* self) {
+-#if defined(__unix__)
++#if defined(__linux__)
+     return Py_BuildValue ("(ii)", self->width, self->height);
+ #elif defined(PYGAME_MAC_CAMERA_OLD)
+     return Py_BuildValue ("(ii)", self->boundsRect.right, self->boundsRect.bottom);
+@@ -284,7 +284,7 @@ PyObject* camera_get_size (PyCameraObjec
+ 
+ /* query_image() - checks if a frame is ready */
+ PyObject* camera_query_image(PyCameraObject* self) {
+-#if defined(__unix__)
++#if defined(__linux__)
+     return PyBool_FromLong(v4l2_query_buffer(self));
+ #endif
+     Py_RETURN_TRUE;
+@@ -293,7 +293,7 @@ PyObject* camera_query_image(PyCameraObj
+ /* get_image() - returns an RGB Surface */
+ /* code to reuse Surface from René Dudfield */
+ PyObject* camera_get_image (PyCameraObject* self, PyObject* arg) {
+-#if defined(__unix__)
++#if defined(__linux__)
+     SDL_Surface* surf = NULL;
+     PyObject *surfobj = NULL;
+ 
+@@ -379,7 +379,7 @@ PyObject* camera_get_image (PyCameraObje
+ 
+ /* get_raw() - returns an unmodified image as a string from the buffer */
+ PyObject* camera_get_raw(PyCameraObject* self) {
+-#if defined(__unix__)
++#if defined(__linux__)
+     return v4l2_read_raw(self);
+ #elif defined(PYGAME_MAC_CAMERA_OLD)
+     return mac_read_raw(self);
+@@ -1425,7 +1425,7 @@ PyTypeObject PyCamera_Type = {
+ };
+ 
+ PyObject* Camera (PyCameraObject* self, PyObject* arg) {
+-# if defined(__unix__)
++# if defined(__linux__)
+     int w, h;
+     char* dev_name = NULL;
+     char* color = NULL;
+--- origsrc/pygame-1.9.3/src/camera.h	2016-05-04 09:04:03.000000000 -0500
++++ src/pygame-1.9.3/src/camera.h	2017-03-14 14:23:04.708276600 -0500
+@@ -20,7 +20,7 @@
+ #include "pygame.h"
+ #include "doc/camera_doc.h"
+ 
+-#if defined(__unix__)
++#if defined(__linux__)
+     #include <structmember.h>
+     #include <stdio.h>
+     #include <stdlib.h>
+@@ -83,7 +83,7 @@ struct buffer {
+     size_t length;
+ };
+ 
+-#if defined(__unix__)
++#if defined(__linux__)
+ typedef struct PyCameraObject {
+     PyObject_HEAD
+     char* device_name;
+@@ -157,7 +157,7 @@ void yuv420_to_rgb (const void* src, voi
+ void yuv420_to_yuv (const void* src, void* dst, int width, int height,
+                     SDL_PixelFormat* format);
+ 
+-#if defined(__unix__)
++#if defined(__linux__)
+ /* internal functions specific to v4l2 */
+ char** v4l2_list_cameras (int* num_devices);
+ int v4l2_get_control (int fd, int id, int *value);
+--- origsrc/pygame-1.9.3/src/camera_v4l2.c	2016-05-04 09:04:03.000000000 -0500
++++ src/pygame-1.9.3/src/camera_v4l2.c	2017-03-14 14:23:25.087452300 -0500
+@@ -17,7 +17,7 @@
+ 
+ */
+ 
+-#if defined(__unix__)
++#if defined(__linux__)
+ 
+ #include "_camera.h"
+ #include "pgcompat.h"
