@@ -1,6 +1,6 @@
---- origsrc/pygame-1.9.3/config_unix.py	2016-08-20 15:28:55.000000000 -0500
-+++ src/pygame-1.9.3/config_unix.py	2017-03-14 14:20:45.224442000 -0500
-@@ -159,27 +159,27 @@ def main():
+--- origsrc/pygame-1.9.4/config_unix.py
++++ src/pygame-1.9.4/config_unix.py
+@@ -159,15 +159,15 @@ def main():
              inc_porttime = os.environ.get('PORTMIDI_INC_PORTTIME')
              portmidi_as_porttime = True if inc_porttime in ['1', 'True'] else False
          else:
@@ -19,6 +19,7 @@
  
      porttime_dep = get_porttime_dep()
  
+@@ -197,11 +197,11 @@
      DEPS = [
          DependencyProg('SDL', 'SDL_CONFIG', 'sdl-config', '1.2', ['sdl']),
 -        Dependency('FONT', 'SDL_ttf.h', 'libSDL_ttf.so', ['SDL_ttf']),
@@ -33,5 +34,4 @@
 -        Dependency('PORTMIDI', 'portmidi.h', 'libportmidi.so', ['portmidi']),
 +        Dependency('PORTMIDI', 'portmidi.h', 'libportmidi', ['portmidi']),
          porttime_dep,
-         DependencyProg('FREETYPE', 'FREETYPE_CONFIG', 'freetype-config', '2.0',
-                        ['freetype'], '--ftversion'),
+         find_freetype(),

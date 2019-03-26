@@ -1,7 +1,7 @@
 inherit python-wheel
 
 NAME="python-pygame"
-VERSION=1.9.3
+VERSION=1.9.4
 RELEASE=1
 CATEGORY="Python"
 SUMMARY="Python SDL game platform"
@@ -17,5 +17,6 @@ PATCH_URI="
 	1.9.3-noinst-tests.patch
 "
 
-python2_pygame_CONTENTS="${PYTHON2_INCLUDEDIR#/} ${python2_pygame_CONTENTS}"
-python3_pygame_CONTENTS="${PYTHON3_INCLUDEDIR#/} ${python3_pygame_CONTENTS}"
+python27_pygame_CONTENTS+=" usr/include/python2.7/"
+python36_pygame_CONTENTS+=" usr/include/python3.6m/"
+python37_pygame_CONTENTS+=" usr/include/python3.7m/"
