@@ -1,0 +1,62 @@
+--- origsrc/pygame-1.9.6/buildconfig/config_unix.py	2019-04-25 02:14:17.000000000 -0400
++++ src/pygame-1.9.6/buildconfig/config_unix.py	2019-05-12 23:40:56.118208200 -0400
+@@ -171,15 +171,15 @@ def main(sdl2=False):
+             inc_porttime = os.environ.get('PORTMIDI_INC_PORTTIME')
+             portmidi_as_porttime = True if inc_porttime in ['1', 'True'] else False
+         else:
+-            if os.path.exists('/etc/redhat-release'):
++            if os.path.exists('/etc/redhat-release') or sys.platform == 'cygwin':
+                 portmidi_as_porttime = True
+             else:
+                 portmidi_as_porttime = False
+ 
+         if portmidi_as_porttime:
+-            return Dependency('PORTTIME', 'porttime.h', 'libportmidi.so', ['portmidi'])
++            return Dependency('PORTTIME', 'porttime.h', 'libportmidi', ['portmidi'])
+         else:
+-            return Dependency('PORTTIME', 'porttime.h', 'libporttime.so', ['porttime'])
++            return Dependency('PORTTIME', 'porttime.h', 'libporttime', ['porttime'])
+ 
+     def find_freetype():
+         """ modern freetype uses pkg-config. However, some older systems don't have that.
+@@ -202,30 +202,30 @@ def main(sdl2=False):
+     if sdl2:
+         DEPS = [
+             DependencyProg('SDL', 'SDL_CONFIG', 'sdl2-config', '2.0', ['sdl']),
+-            Dependency('FONT', 'SDL_ttf.h', 'libSDL2_ttf.so', ['SDL2_ttf']),
+-            Dependency('IMAGE', 'SDL_image.h', 'libSDL2_image.so', ['SDL2_image']),
+-            Dependency('MIXER', 'SDL_mixer.h', 'libSDL2_mixer.so', ['SDL2_mixer']),
+-            #Dependency('GFX', 'SDL_gfxPrimitives.h', 'libSDL2_gfx.so', ['SDL2_gfx']),
++            Dependency('FONT', 'SDL_ttf.h', 'libSDL2_ttf', ['SDL2_ttf']),
++            Dependency('IMAGE', 'SDL_image.h', 'libSDL2_image', ['SDL2_image']),
++            Dependency('MIXER', 'SDL_mixer.h', 'libSDL2_mixer', ['SDL2_mixer']),
++            #Dependency('GFX', 'SDL_gfxPrimitives.h', 'libSDL2_gfx', ['SDL2_gfx']),
+         ]
+     else:
+         DEPS = [
+             DependencyProg('SDL', 'SDL_CONFIG', 'sdl-config', '1.2', ['sdl']),
+-            Dependency('FONT', 'SDL_ttf.h', 'libSDL_ttf.so', ['SDL_ttf']),
+-            Dependency('IMAGE', 'SDL_image.h', 'libSDL_image.so', ['SDL_image']),
+-            Dependency('MIXER', 'SDL_mixer.h', 'libSDL_mixer.so', ['SDL_mixer']),
+-            #Dependency('GFX', 'SDL_gfxPrimitives.h', 'libSDL_gfx.so', ['SDL_gfx']),
++            Dependency('FONT', 'SDL_ttf.h', 'libSDL_ttf', ['SDL_ttf']),
++            Dependency('IMAGE', 'SDL_image.h', 'libSDL_image', ['SDL_image']),
++            Dependency('MIXER', 'SDL_mixer.h', 'libSDL_mixer', ['SDL_mixer']),
++            #Dependency('GFX', 'SDL_gfxPrimitives.h', 'libSDL_gfx', ['SDL_gfx']),
+         ]
+     DEPS.extend([
+         Dependency('PNG', 'png.h', 'libpng', ['png']),
+         Dependency('JPEG', 'jpeglib.h', 'libjpeg', ['jpeg']),
+         Dependency('SCRAP', '', 'libX11', ['X11']),
+-        #Dependency('GFX', 'SDL_gfxPrimitives.h', 'libSDL_gfx.so', ['SDL_gfx']),
++        #Dependency('GFX', 'SDL_gfxPrimitives.h', 'libSDL_gfx', ['SDL_gfx']),
+     ])
+     is_freebsd = platform.system() == 'FreeBSD'
+     if not is_freebsd:
+         porttime_dep = get_porttime_dep()
+         DEPS.append(
+-            Dependency('PORTMIDI', 'portmidi.h', 'libportmidi.so', ['portmidi'])
++            Dependency('PORTMIDI', 'portmidi.h', 'libportmidi', ['portmidi'])
+         )
+         DEPS.append(porttime_dep)
+     DEPS.append(find_freetype())

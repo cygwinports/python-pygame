@@ -1,7 +1,7 @@
 inherit python-wheel
 
 NAME="python-pygame"
-VERSION=1.9.4
+VERSION=1.9.6
 RELEASE=1
 CATEGORY="Python"
 SUMMARY="Python SDL game platform"
@@ -11,10 +11,10 @@ fully featured games and multimedia programs in the python language."
 HOMEPAGE="http://www.pygame.org/"
 
 PATCH_URI="
-	1.9.3-cygwin-camera.patch
-	1.9.3-cygwin-config.patch
-	1.9.3-cygwin-x11.patch
-	1.9.3-noinst-tests.patch
+	1.9.6-cygwin-camera.patch
+	1.9.6-cygwin-config.patch
+	1.9.6-cygwin-x11.patch
+	1.9.6-noinst-tests.patch
 "
 
 python27_pygame_CONTENTS+=" usr/include/python2.7/"

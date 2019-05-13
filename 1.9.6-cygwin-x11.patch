@@ -1,0 +1,22 @@
+--- origsrc/pygame-1.9.6/src_c/display.c	2019-04-25 02:14:17.000000000 -0400
++++ src/pygame-1.9.6/src_c/display.c	2019-05-12 23:43:30.104035900 -0400
+@@ -501,7 +501,7 @@ pg_get_wm_info(PyObject *self, PyObject
+ /*scary #ifdef's match SDL_syswm.h*/
+ #if (defined(unix) || defined(__unix__) || defined(_AIX) ||     \
+      defined(__OpenBSD__)) &&                                   \
+-    (defined(SDL_VIDEO_DRIVER_X11) && !defined(__CYGWIN32__) && \
++    (defined(SDL_VIDEO_DRIVER_X11) && \
+      !defined(ENABLE_NANOX) && !defined(__QNXNTO__))
+ 
+     tmp = PyInt_FromLong(info.info.x11.window);
+--- origsrc/pygame-1.9.6/src_c/event.c	2019-04-25 02:14:17.000000000 -0400
++++ src/pygame-1.9.6/src_c/event.c	2019-05-12 23:43:37.385251800 -0400
+@@ -694,7 +694,7 @@ dict_from_event(SDL_Event *event)
+ 
+ #if (defined(unix) || defined(__unix__) || defined(_AIX) ||     \
+      defined(__OpenBSD__)) &&                                   \
+-    (defined(SDL_VIDEO_DRIVER_X11) && !defined(__CYGWIN32__) && \
++    (defined(SDL_VIDEO_DRIVER_X11) && \
+      !defined(ENABLE_NANOX) && !defined(__QNXNTO__))
+ #if IS_SDLv1
+         case SDL_SYSWMEVENT:
